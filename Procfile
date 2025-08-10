@@ -1,0 +1,1 @@
+web: gunicorn ask_a_guru.wsgi
