@@ -7,6 +7,11 @@ The expert can manage session offerings and bookings (optionally via Django Admi
 Built with Django, PostgreSQL, and Bootstrap, following Agile methodology and UX best practices.  
 Fully responsive and focused on a seamless booking experience.
 
+## Live Demo
+[Click here to view the live app on Heroku](https://ask-a-guru-fc4a33b03d56.herokuapp.com/)
+
+Users can browse sessions, book preferred time slots...
+
 [Back To Top](#ask-a-guru)
 
 ---
