@@ -1,5 +1,16 @@
+# Virtual environment
 venv/
 .env
+
+# Python cache
 __pycache__/
 *.pyc
-db.sqlite3.DS_Store
+
+# Local database
+db.sqlite3
+
+# macOS system files
+.DS_Store
+
+# Static files collected by Django
+/staticfiles/
