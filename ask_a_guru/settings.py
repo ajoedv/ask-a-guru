@@ -81,13 +81,21 @@ WSGI_APPLICATION = 'ask_a_guru.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": dj_database_url.config(
-        default=f"sqlite:///{Path(BASE_DIR) / 'db.sqlite3'}",
-        conn_max_age=600,
-        ssl_require=True,  
-    )
-}
+DB_URL = os.environ.get("DATABASE_URL")
+
+if DB_URL:
+    # Production (Heroku): use PostgreSQL with SSL
+    DATABASES = {
+        "default": dj_database_url.parse(DB_URL, conn_max_age=600, ssl_require=True)
+    }
+else:
+    # Development (local): use SQLite without SSL
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 
 # Password validation
