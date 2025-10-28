@@ -21,6 +21,7 @@ def booking_create(request):
     return render(request, "bookings/booking_form.html", {"form": form})
 
 
+@login_required
 def my_bookings(request):
     bookings = (
         Booking.objects.filter(user=request.user).order_by("-scheduled_at")
