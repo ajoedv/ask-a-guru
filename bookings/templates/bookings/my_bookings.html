@@ -2,7 +2,54 @@
 
 {% block content %}
 <div class="container py-4">
-    <h3>My bookings page</h3>
-    <p>This page inherits the favicon from base.html.</p>
+    {% if messages %}
+        <div class="mt-2">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} mb-2" role="alert">
+            {{ message }}
+            </div>
+        {% endfor %}
+        </div>
+    {% endif %}
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">My bookings page</h3>
+        <a class="btn btn-dark btn-lg me-2" href="{% url 'bookings:create' %}">New booking</a>
+    </div>
+</a>
+
+    {% if bookings %}
+        <div class="list-group mt-3">
+        {% for b in bookings %}
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <div class="fw-semibold">{{ b.session_title }}</div>
+                <div class="text-muted small">
+                {{ b.scheduled_at|date:"Y-m-d H:i" }}
+                    <span
+                        class="ms-2 badge
+                        {% if b.status == 'pending' %} bg-warning text-dark
+                        {% elif b.status == 'confirmed' %} bg-success
+                        {% elif b.status == 'cancelled' %} bg-secondary
+                        {% else %} bg-light text-dark
+                        {% endif %}">
+                        {{ b.status|title }}
+                    </span>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <div class="text-center py-5">
+            <div class="mb-2 fw-semibold">No bookings yet</div>
+                <p class="text-muted mb-3">
+                Create your first session to get started.
+                </p>
+            <a href="{% url 'bookings:create' %}" class="btn btn-primary btn-sm">
+            New booking
+            </a>
+        </div>
+    {% endif %}
 </div>
 {% endblock %}

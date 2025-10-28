@@ -27,16 +27,27 @@ class Booking(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def clean(self):
-        # Basic validation
-        if self.scheduled_at < timezone.now():
+        scheduled = getattr(self, "scheduled_at", None)
+        title = getattr(self, "session_title", None)
+        if not scheduled or not title:
+            return
+
+        if timezone.is_naive(scheduled):
+            scheduled = timezone.make_aware(
+                scheduled, timezone.get_current_timezone()
+            )
+            self.scheduled_at = scheduled
+
+        if scheduled <= timezone.now():
             raise ValidationError("You cannot book a past date or time.")
 
-        exists = Booking.objects.filter(
-            session_title=self.session_title,
-            scheduled_at=self.scheduled_at
-        ).exclude(pk=self.pk).exists()
+        exists = (
+            type(self).objects
+            .filter(session_title=title, scheduled_at=scheduled)
+            .exclude(pk=self.pk)
+            .exists()
+        )
         if exists:
-            raise ValidationError("This time slot is already booked for this session.")
-
-    def __str__(self):
-        return f"{self.session_title} — {self.user.username}"
+            raise ValidationError(
+                "This time slot is already booked for this session."
+            )
