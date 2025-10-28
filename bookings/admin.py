@@ -1,13 +1,30 @@
 from django.contrib import admin
 from .models import Booking
-from .forms import AdminBookingForm
 
 
+@admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
-    form = AdminBookingForm
-    list_display = ("session_title", "user", "scheduled_at", "status", "created_at")
-    list_filter = ("status", "created_at")
-    search_fields = ("session_title", "user__username")
+    list_display = (
+        "id",
+        "user",
+        "session_title",
+        "scheduled_at",
+        "status",
+        "created_at",
+    )
+    list_filter = ("status", "session_title")
+    search_fields = ("user__username", "user__email", "session_title")
+    ordering = ("-scheduled_at",)
 
+    fields = ("user", "session_title", "notes", "scheduled_at", "status")
+    readonly_fields = ("created_at", "updated_at")
 
-admin.site.register(Booking, BookingAdmin)
+    actions = ["mark_confirmed", "mark_cancelled"]
+
+    @admin.action(description="Mark selected as confirmed")
+    def mark_confirmed(self, request, queryset):
+        queryset.update(status="confirmed")
+
+    @admin.action(description="Mark selected as cancelled")
+    def mark_cancelled(self, request, queryset):
+        queryset.update(status="cancelled")
