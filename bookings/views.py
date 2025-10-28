@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import AdminBookingForm
@@ -27,3 +27,35 @@ def my_bookings(request):
         if request.user.is_authenticated else []
     )
     return render(request, "bookings/my_bookings.html", {"bookings": bookings})
+
+
+@login_required
+def booking_update(request, pk):
+    obj = get_object_or_404(Booking, pk=pk, user=request.user)
+    if request.method == "POST":
+        form = AdminBookingForm(request.POST, instance=obj)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Booking updated.")
+            return redirect("bookings:bookings-home")
+    else:
+        form = AdminBookingForm(instance=obj)
+    return render(
+        request,
+        "bookings/booking_form.html",
+        {"form": form, "is_update": True},
+    )
+
+
+@login_required
+def booking_delete(request, pk):
+    obj = get_object_or_404(Booking, pk=pk, user=request.user)
+    if request.method == "POST":
+        obj.delete()
+        messages.success(request, "Booking cancelled.")
+        return redirect("bookings:bookings-home")
+    return render(
+        request,
+        "bookings/booking_confirm_delete.html",
+        {"booking": obj},
+    )
