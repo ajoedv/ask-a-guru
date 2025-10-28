@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <h3 class="mb-3">Create account</h3>
+
+        {% if form.non_field_errors %}
+        <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <form method="post" action="{% url 'account_signup' %}">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label class="form-label" for="id_username">Username</label>
+            <input class="form-control" type="text" name="username" id="id_username" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="id_email">Email</label>
+            <input class="form-control" type="email" name="email" id="id_email" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="id_password1">Password</label>
+            <input class="form-control" type="password" name="password1" id="id_password1" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="id_password2">Confirm password</label>
+            <input class="form-control" type="password" name="password2" id="id_password2" required>
+        </div>
+
+        <button class="btn btn-success w-100" type="submit">Sign up</button>
+        </form>
+
+        <p class="text-muted small mt-3">
+        Already have an account?
+        <a href="{% url 'account_login' %}">Sign in</a>.
+        </p>
+    </div>
+</div>
+{% endblock %}

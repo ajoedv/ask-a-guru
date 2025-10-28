@@ -28,8 +28,13 @@
 
             <!-- Buttons -->
             <div class="d-flex align-items-center">
-                <a class="btn btn-outline-dark me-2" href="#">Sign Up</a>
-                <a class="btn btn-dark" href="#">Sign In</a>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-outline-dark me-2" href="{% url 'bookings:bookings-home' %}">My bookings</a>
+                    <a class="btn btn-dark" href="{% url 'account_logout' %}">Sign out</a>
+                {% else %}
+                    <a class="btn btn-outline-dark me-2" href="{% url 'account_signup' %}">Sign up</a>
+                    <a class="btn btn-dark" href="{% url 'account_login' %}">Sign in</a>
+                {% endif %}
             </div>
         </div>
     </div>

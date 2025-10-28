@@ -5,12 +5,21 @@ venv/
 # Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 
 # Local database
 db.sqlite3
+*.sqlite3
 
 # macOS system files
 .DS_Store
+.idea/
+.vscode/
+
+# Logs
+*.log
 
 # Static files collected by Django
 /staticfiles/
+media/

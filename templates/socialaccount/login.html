@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign in" %} – Ask a Guru{% endblock %}
+
+{% block content %}
+<div class="container py-5" style="max-width: 580px;">
+    <div class="card shadow-sm">
+        <div class="card-body p-4">
+        <h4 class="mb-2">{% trans "Sign in with Google" %}</h4>
+        <p class="text-muted mb-4">
+            {% trans "You're about to sign in using your Google account." %}
+        </p>
+
+        <form method="post" action="">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-dark w-100">
+            {% trans "Continue" %}
+            </button>
+        </form>
+
+        <div class="text-center mt-3">
+            <a class="small text-decoration-none" href="{% url 'account_login' %}">{% trans "Back to sign in options" %}</a>
+        </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

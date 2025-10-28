@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load socialaccount %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="col-12 col-md-6 col-lg-4 mx-auto">
+        <h3 class="mb-3">Sign in</h3>
+
+        {% if form.non_field_errors %}
+        <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <form method="post" action="{% url 'account_login' %}">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label class="form-label" for="id_login">Email or Username</label>
+            <input type="text" name="login" id="id_login"
+                class="form-control" autocomplete="username" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="id_password">Password</label>
+            <input type="password" name="password" id="id_password"
+                class="form-control" autocomplete="current-password" required>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input class="form-check-input" type="checkbox" name="remember" id="id_remember">
+            <label class="form-check-label" for="id_remember">Remember me</label>
+        </div>
+
+        <button class="btn btn-primary w-100" type="submit">Sign in</button>
+        <a href="{% provider_login_url 'google' %}"
+            class="btn btn-light w-100 mt-2">
+            Continue with Google
+        </a>
+        </form>
+
+        <p class="text-muted small mt-3">
+        Don’t have an account?
+        <a href="{% url 'account_signup' %}">Create one</a>.
+        </p>
+    </div>
+</div>
+{% endblock %}
