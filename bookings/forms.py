@@ -18,6 +18,8 @@ class AdminBookingForm(forms.ModelForm):
             attrs={
                 "type": "date",
                 "min": date.today().isoformat(),
+                "class": "form-control",
+                "placeholder": "yyyy-mm-dd",
             }
         ),
     )
@@ -27,6 +29,7 @@ class AdminBookingForm(forms.ModelForm):
         required=True,
         choices=TIME_CHOICES,
         help_text="",
+        widget=forms.Select(attrs={"class": "form-select"}),
     )
 
     class Meta:
@@ -38,6 +41,10 @@ class AdminBookingForm(forms.ModelForm):
             "created_at",
             "updated_at",
         )
+        widgets = {
+            "session_title": forms.Select(attrs={"class": "form-select"}),
+            "notes": forms.Textarea(attrs={"class": "form-control", "rows": 6}),
+        }
 
     def clean(self):
         cleaned = super().clean()
