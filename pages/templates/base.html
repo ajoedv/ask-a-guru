@@ -38,7 +38,7 @@
     <header>
         {% include 'includes/navbar.html' %}
     </header>
-    
+
     {% if messages %}
         <div class="container mt-3" id="flash-messages">
             {% for message in messages %}
@@ -50,8 +50,12 @@
         </div>
         {% endif %}
     <main id="main">
+    <div class="container py-4">
+        {% block page_header %}{% endblock %}
         {% block content %}{% endblock %}
+    </div>
     </main>
+
 
     <footer>
         {% include 'includes/footer.html' %}

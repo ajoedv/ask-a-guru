@@ -1,60 +1,61 @@
 {% extends "base.html" %}
 
-{% block content %}
-<div class="container py-4">
-    <h3 class="mb-1">
-    {% if is_update %}Edit booking{% else %}New Booking{% endif %}
-    </h3>
-    <p class="text-muted small mb-4">Sessions use CET/CEST. Please check your local time.</p>
+{% block page_header %}
+    <h1 class="h3 mb-1">
+      {% if is_update %}Edit Booking{% else %}New Booking{% endif %}
+    </h1>
+    <p class="text-muted mb-0">Sessions use CET/CEST. Please check your local time.</p>
+    <hr class="my-3">
+  {% endblock %}
 
+  {% block content %}
     <form method="post" novalidate class="needs-validation">
-        {% csrf_token %}
+      {% csrf_token %}
 
-        {% if form.non_field_errors %}
+      {% if form.non_field_errors %}
         <div class="alert alert-danger" role="alert">
-            {{ form.non_field_errors }}
+          {{ form.non_field_errors }}
         </div>
-        {% endif %}
+      {% endif %}
 
-        <div class="mb-3">
+      <div class="mb-3">
         <label class="form-label">{{ form.session_title.label }} *</label>
         {{ form.session_title }}
         {% for err in form.session_title.errors %}
-            <div class="text-danger small">{{ err }}</div>
+          <div class="text-danger small">{{ err }}</div>
         {% endfor %}
-        </div>
+      </div>
 
-        <div class="mb-3">
+      <div class="mb-3">
         <label class="form-label">{{ form.notes.label }}</label>
         {{ form.notes }}
         {% for err in form.notes.errors %}
-            <div class="text-danger small">{{ err }}</div>
+          <div class="text-danger small">{{ err }}</div>
         {% endfor %}
-        </div>
+      </div>
 
-        <div class="row g-3">
+      <div class="row g-3">
         <div class="col-sm-6">
-            <label class="form-label">{{ form.date.label }} *</label>
-            {{ form.date }}
-            {% for err in form.date.errors %}
+          <label class="form-label">{{ form.date.label }} *</label>
+          {{ form.date }}
+          {% for err in form.date.errors %}
             <div class="text-danger small">{{ err }}</div>
-            {% endfor %}
+          {% endfor %}
         </div>
         <div class="col-sm-6">
-            <label class="form-label">{{ form.time_slot.label }} *</label>
-            {{ form.time_slot }}
-            {% for err in form.time_slot.errors %}
+          <label class="form-label">{{ form.time_slot.label }} *</label>
+          {{ form.time_slot }}
+          {% for err in form.time_slot.errors %}
             <div class="text-danger small">{{ err }}</div>
-            {% endfor %}
+          {% endfor %}
         </div>
-        </div>
+      </div>
 
-        <div class="mt-3 d-flex gap-2">
-        <button class="btn btn-success" type="submit">
-            {% if is_update %}Save changes{% else %}Create booking{% endif %}
+      <div class="mt-3 d-flex gap-2">
+        <button class="btn btn-dark" type="submit">
+          {% if is_update %}Save changes{% else %}Create booking{% endif %}
         </button>
         <a class="btn btn-outline-secondary" href="{% url 'bookings:bookings-home' %}">Cancel</a>
-        </div>
+      </div>
     </form>
-    </div>
 {% endblock %}
