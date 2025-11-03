@@ -26,7 +26,14 @@ def booking_create(request):
             messages.success(request, f'Booking created for "{title}".')
             return redirect("bookings:bookings-home")
     else:
-        form = AdminBookingForm()
+        # PREFILL from query string (?title=...)
+        initial = {}
+        q_title = request.GET.get("title")
+        if q_title:
+            initial["session_title"] = q_title
+
+        form = AdminBookingForm(initial=initial)
+
     return render(request, "bookings/booking_form.html", {"form": form})
 
 

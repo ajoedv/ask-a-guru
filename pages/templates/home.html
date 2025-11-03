@@ -28,7 +28,7 @@
                     <div class="card-body">
                         <h3 class="h5 fw-bold">Design Strategy</h3>
                         <p class="mb-3">Clarify your idea, structure your UI, and plan the next steps.</p>
-                        <a href="#" class="btn btn-dark w-100">Book this session</a>
+                        <a href="{% url 'bookings:create' %}?title={{ 'Design Strategy'|urlencode }}" class="btn btn-dark w-100">Book this session</a>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                     <div class="card-body">
                         <h3 class="h5 fw-bold">Photography Critique</h3>
                         <p class="mb-3">Get actionable feedback to level up your shots and workflow.</p>
-                        <a href="#" class="btn btn-dark w-100">Book this session</a>
+                        <a href="{% url 'bookings:create' %}?title={{ 'Photography Critique'|urlencode }}" class="btn btn-dark w-100">Book this session</a>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                     <div class="card-body">
                         <h3 class="h5 fw-bold">Brand Foundations</h3>
                         <p class="mb-3">Define tone, visuals, and messaging for a stronger brand.</p>
-                        <a href="#" class="btn btn-dark w-100">Book this session</a>
+                        <a href="{% url 'bookings:create' %}?title={{ 'Brand Foundations'|urlencode }}" class="btn btn-dark w-100">Book this session</a>
                     </div>
                 </div>
             </div>
