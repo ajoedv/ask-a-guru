@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <h1 class="h3 mb-1">About ask a guru</h1>
+    <p class="text-muted mb-0">About me & how I can help</p>
+    <hr class="my-3">
+{% endblock %}
+
+{% block content %}
+<div class="container-lg">
+
+    <!-- Expert hero row -->
+    <div class="row g-4 align-items-center mb-5">
+    <div class="col-12 col-lg-8">
+        <div class="p-4 bg-light rounded-3 border border-0">
+        <div class="mx-auto" style="max-width: 820px;">
+            <h2 class="h4 fw-bold mb-3 about-title">About Me</h2>
+
+            <p class="about-intro mb-4">
+            Joe Dev is a creative director and mentor who helps designers, photographers, and founders get clarity fast.
+            Sessions are focused, practical, and tailored to your goals, so you leave with confidence and concrete next steps.
+            </p>
+
+            <ul class="list-unstyled about-points">
+            <li class="d-flex gap-2 mb-2">
+                <i class="bi bi-check2-circle text-muted mt-1"></i>
+                <span>Honest critique with clear structure and priorities.</span>
+            </li>
+            <li class="d-flex gap-2 mb-2">
+                <i class="bi bi-check2-circle text-muted mt-1"></i>
+                <span>Actionable next steps you can apply the same day.</span>
+            </li>
+            <li class="d-flex gap-2">
+                <i class="bi bi-check2-circle text-muted mt-1"></i>
+                <span>Tailored guidance for design, photography, and branding.</span>
+            </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+        <!-- Right: profile card -->
+        <div class="col-12 col-lg-4">
+            <div class="card shadow-sm h-100 border-0">
+                <div class="card-body text-center d-flex flex-column align-items-center">
+                    <div class="rounded-circle p-1 mb-3" style="background:linear-gradient(#fff,#f2f3f5);">
+                    <img src="{% static 'images/joe.png' %}" alt="Joe Dev portrait"
+                        class="rounded-circle" style="width:176px;height:176px;object-fit:cover;border:6px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.06);">
+                    </div>
+
+                    <div class="fw-semibold">Joe Dev</div>
+                    <div class="text-secondary small mb-3">Founder & Creative Director</div>
+
+                    <div class="d-flex gap-2 w-100 justify-content-center">
+                        <a href="{% url 'bookings:create' %}" class="btn btn-dark">Book a session</a>
+                        <a href="{% url 'home' %}#sessions" class="btn btn-outline-secondary">Browse sessions</a>
+                    </div>
+
+                    <div class="text-muted small mt-3">Avg response &lt; 24h</div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <!-- Stats circles as a separate section -->
+    <section class="py-5 about-stats">
+        <div class="row g-4 text-center justify-content-center">
+            <div class="col-6 col-md-4">
+                <div class="stat-circle mx-auto">
+                    <div class="value">10+ yrs</div>
+                    <div class="label">Experience</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="stat-circle mx-auto">
+                    <div class="value">500+</div>
+                    <div class="label">Projects</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4">
+                <div class="stat-circle mx-auto">
+                    <div class="value">4.9/5</div>
+                    <div class="label">Avg. rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Row 2: Three cards -->
+<div class="row g-4">
+    <div class="col-12 col-lg-4">
+        <div class="p-4 bg-light rounded-3 h-100 text-center">
+        <h3 class="h5 fw-semibold mb-2">Our mission</h3>
+        <p class="mb-0 text-muted mx-auto" style="max-width: 42ch;">
+            Connect learners with experts for one-to-one guidance that creates real progress
+            in design, photography, and branding.
+        </p>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <div class="p-4 bg-light rounded-3 h-100 text-center">
+        <h3 class="h5 fw-semibold mb-2">What you get</h3>
+        <ul class="mb-0 text-muted ps-3 d-inline-block text-start mx-auto">
+            <li>Clear critique and direction.</li>
+            <li>Actionable next steps.</li>
+            <li>Templates/examples to reuse.</li>
+        </ul>
+        </div>
+    </div>
+
+    <div class="col-12 col-lg-4">
+        <div class="p-4 bg-light rounded-3 h-100 text-center">
+        <h3 class="h5 fw-semibold mb-2">How it works</h3>
+        <ol class="mb-0 text-muted ps-3 d-inline-block text-start mx-auto">
+            <li>Choose a session topic.</li>
+            <li>Pick a time that fits.</li>
+            <li>Meet your expert and start.</li>
+        </ol>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

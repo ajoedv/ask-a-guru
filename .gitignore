@@ -22,4 +22,5 @@ db.sqlite3
 
 # Static files collected by Django
 /staticfiles/
-media/
+media/.DS_Store
+static/images/hero.jpg
