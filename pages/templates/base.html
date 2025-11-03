@@ -33,7 +33,7 @@
 
     {% block extra_head %}{% endblock %}
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
     <header>
         {% include 'includes/navbar.html' %}
@@ -49,7 +49,7 @@
             {% endfor %}
         </div>
         {% endif %}
-    <main id="main">
+    <main id="main" class="flex-grow-1">
     <div class="container py-4">
         {% block page_header %}{% endblock %}
         {% block content %}{% endblock %}
