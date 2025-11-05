@@ -295,3 +295,33 @@ img {
 }
 
 .opacity-90{ opacity: .9; }
+
+/* Hero with background image */
+.hero{
+    position: relative;
+    background: #000 center/cover no-repeat;
+    height: 700px;
+}
+
+.hero__inner{
+    position: relative;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: clamp(48px, 8vh, 96px);
+    padding-top: 0;
+}
+
+.hero .btn-outline-dark{
+    color: #fff;
+    border-color: #fff;
+    background: transparent;
+}
+
+.hero .btn-outline-dark:hover,
+.hero .btn-outline-dark:focus{
+    background: #fff;
+    color: #111;
+    border-color: #fff;
+}

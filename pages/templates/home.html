@@ -3,20 +3,23 @@
 {% block title %}Home · Ask a Guru{% endblock %}
 
 {% block content %}
+{% load static %}
 
-<!-- Hero -->
-<section class="section bg-light border-bottom">
-    <div class="container text-center">
+<!-- Hero (image background + overlay, buttons unchanged) -->
+<section class="hero text-white" style="background-image:url('{% static "images/hero.webp" %}');">
+    <div class="hero__overlay"></div>
+    <div class="container text-center hero__inner">
         <h1 class="display-5 fw-bold mb-3">Book a Creative Session with an Expert</h1>
         <p class="lead mb-4">
             One-to-one sessions in design, photography, and branding — tailored to your goals.
         </p>
         <div>
-            <a href="{% url 'bookings:bookings-home' %}" class="btn btn-dark btn-lg me-2">Book Now</a>
-            <a href="{% url 'sessions' %}" class="btn btn-outline-dark btn-lg">Browse Sessions</a>
+        <a href="{% url 'bookings:bookings-home' %}" class="btn btn-outline-dark btn-lg">Book Now</a>
+        <a href="{% url 'sessions' %}" class="btn btn-outline-dark btn-lg">Browse Sessions</a>
         </div>
     </div>
 </section>
+
 
 <!-- Featured Sessions -->
 <section class="section ">
