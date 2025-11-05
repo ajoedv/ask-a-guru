@@ -65,8 +65,6 @@ ACCOUNT_LOGIN_METHODS = {"username", "email"}
 ACCOUNT_SIGNUP_FIELDS = ["username*", "email*", "password1*", "password2*"]
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
-OGIN_REDIRECT_URL = "/bookings/"
-LOGOUT_REDIRECT_URL = "/"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
@@ -112,7 +110,11 @@ DB_URL = os.environ.get("DATABASE_URL")
 if DB_URL:
     # Production (Heroku): use PostgreSQL with SSL
     DATABASES = {
-        "default": dj_database_url.parse(DB_URL, conn_max_age=600, ssl_require=True)
+        "default": dj_database_url.parse(
+            DB_URL,
+            conn_max_age=600,
+            ssl_require=True,
+            )
     }
 else:
     # Development (local): use SQLite without SSL
@@ -129,16 +131,28 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "MinimumLengthValidator"
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "CommonPasswordValidator"
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "NumericPasswordValidator"
+        ),
     },
 ]
 
