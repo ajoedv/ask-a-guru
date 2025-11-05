@@ -11,3 +11,7 @@ def about(request):
 
 def sessions_view(request):
     return render(request, "sessions.html")
+
+
+def privacy(request):
+    return render(request, 'privacy.html')

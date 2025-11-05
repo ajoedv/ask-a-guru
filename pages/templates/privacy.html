@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-3">Privacy Policy</h1>
+    <p class="text-muted">Last updated: {{ today|default:"November 5, 2025" }}</p>
+
+    <p>
+        Welcome to <strong>Ask a Guru</strong>. We respect your privacy and are committed to protecting your personal data.
+        This Privacy Policy explains what we collect, how we use it, and your rights under applicable laws including the GDPR.
+    </p>
+
+    <h3 class="mt-4">1. Who We Are</h3>
+    <p>
+        <strong>Controller:</strong> Ask a Guru<br>
+        <strong>Contact:</strong> joedev@ask-a-guru.com, info@ask-a-guru.com
+    </p>
+
+    <h3 class="mt-4">2. What Data We Collect</h3>
+    <ul>
+        <li><strong>Account &amp; Profile:</strong> name, email, password (hashed), and optional profile info.</li>
+        <li><strong>Bookings:</strong> session selections, dates, notes you provide.</li>
+        <li><strong>Technical:</strong> IP address, device/browser info, approximate location, and cookies.</li>
+        <li><strong>Communications:</strong> messages, support requests, and email preferences.</li>
+    </ul>
+
+    <h3 class="mt-4">3. How We Use Your Data (Legal Bases)</h3>
+    <ul>
+        <li><strong>Provide and manage bookings</strong> (Contract).</li>
+        <li><strong>Account management &amp; support</strong> (Contract/Legitimate interest).</li>
+        <li><strong>Security &amp; fraud prevention</strong> (Legitimate interest/Legal obligation).</li>
+        <li><strong>Service improvements &amp; analytics</strong> (Legitimate interest / Consent where required).</li>
+        <li><strong>Optional marketing emails</strong> (Consent; you can opt out anytime).</li>
+    </ul>
+
+    <h3 class="mt-4">4. Cookies &amp; Analytics</h3>
+    <p>
+        We use essential cookies to run the site and (optionally) analytics cookies to understand usage.
+        Where required, we will ask for your consent via a cookie banner. You can adjust preferences at any time.
+    </p>
+
+    <h3 class="mt-4">5. Offline Payments &amp; Invoicing</h3>
+    <p>
+        We do <strong>not</strong> process card payments on this website. If you choose to pay via offline methods
+        (e.g., bank transfer/Swish/cash/invoice), we may collect basic billing details (name, company, VAT number if provided),
+        invoice totals, payment status, and method for accounting and legal purposes. No card details are handled on this site.
+    </p>
+
+    <h3 class="mt-4">6. Data Sharing</h3>
+    <p>
+        We may share minimal data with trusted service providers (e.g., hosting, email delivery, analytics) under data
+        processing agreements. We do not sell your personal data.
+    </p>
+
+    <h3 class="mt-4">7. International Transfers</h3>
+    <p>
+        If data is transferred outside the EEA/UK, we rely on appropriate safeguards (e.g., SCCs) as required by law.
+    </p>
+
+    <h3 class="mt-4">8. Data Retention</h3>
+    <p>
+        We keep personal data only as long as necessary for the purposes described, or to comply with legal obligations.
+        We then delete or anonymize it.
+    </p>
+
+    <h3 class="mt-4">9. Your Rights (EU/EEA/UK)</h3>
+    <ul>
+        <li>Access, rectification, deletion</li>
+        <li>Restriction and portability</li>
+        <li>Object to processing based on legitimate interests</li>
+        <li>Withdraw consent (for consent-based processing)</li>
+        <li>Complain to your local data protection authority</li>
+    </ul>
+    <p>
+        To exercise your rights, contact us at <strong>info@ask-a-guru.com</strong> (or <strong>joedev@ask-a-guru.com</strong>).
+        We may need to verify your identity.
+    </p>
+
+    <h3 class="mt-4">10. Security</h3>
+    <p>
+        We implement technical and organizational measures to protect your data. No method of transmission or storage is 100% secure.
+    </p>
+
+    <h3 class="mt-4">11. Children</h3>
+    <p>
+        Our services are not intended for children under the age of 16. If you believe a child provided us data, contact us to remove it.
+    </p>
+
+    <h3 class="mt-4">12. Changes to This Policy</h3>
+    <p>
+        We may update this policy. We will post the new version with an updated “Last updated” date, and take additional steps if required by law.
+    </p>
+
+    <h3 class="mt-4">13. Contact</h3>
+    <p>
+        If you have questions, contact: <strong>info@ask-a-guru.com</strong>.
+    </p>
+
+    <hr class="my-4">
+    <p><a class="btn btn-dark" href="/">Back to Home</a></p>
+</div>
+{% endblock %}
