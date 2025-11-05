@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import AdminBookingForm
 from .models import Booking
+from django.utils import timezone
 
 
 @login_required
@@ -18,8 +19,12 @@ def booking_create(request):
                 user=request.user,
                 scheduled_at=booking.scheduled_at
             ).exists():
-                form.add_error(None, "You already have a booking at this date and time.")
-                return render(request, "bookings/booking_form.html", {"form": form})
+                form.add_error(
+                    None,
+                    "You already have a booking at this date and time.")
+                return render(
+                    request,
+                    "bookings/booking_form.html", {"form": form})
 
             booking.save()
             title = booking.session_title
@@ -43,12 +48,21 @@ def my_bookings(request):
         Booking.objects.filter(user=request.user).order_by("-scheduled_at")
         if request.user.is_authenticated else []
     )
-    return render(request, "bookings/my_bookings.html", {"bookings": bookings})
+    return render(
+        request,
+        "bookings/my_bookings.html",
+        {"bookings": bookings, "now": timezone.now()}
+    )
 
 
 @login_required
 def booking_update(request, pk):
     obj = get_object_or_404(Booking, pk=pk, user=request.user)
+
+    if obj.scheduled_at <= timezone.now():
+        messages.error(request, "Past bookings cannot be edited.")
+        return redirect("bookings:bookings-home")
+
     if request.method == "POST":
         form = AdminBookingForm(request.POST, instance=obj)
         if form.is_valid():
@@ -59,7 +73,9 @@ def booking_update(request, pk):
                 user=request.user,
                 scheduled_at=tmp.scheduled_at
             ).exclude(pk=pk).exists():
-                form.add_error(None, "You already have a booking at this date and time.")
+                form.add_error(
+                    None,
+                    "You already have a booking at this date and time.")
                 return render(
                     request,
                     "bookings/booking_form.html",
@@ -81,6 +97,11 @@ def booking_update(request, pk):
 @login_required
 def booking_delete(request, pk):
     obj = get_object_or_404(Booking, pk=pk, user=request.user)
+
+    if obj.scheduled_at <= timezone.now():
+        messages.error(request, "Past bookings cannot be cancelled.")
+        return redirect("bookings:bookings-home")
+
     if request.method == "POST":
         obj.delete()
         messages.success(request, "Booking cancelled.")

@@ -33,8 +33,12 @@
                 </div>
             </div>
             <div class="ms-3 d-flex gap-2">
+            {% if b.scheduled_at > now %}
                 <a class="btn btn-outline-dark btn-sm" href="{% url 'bookings:update' b.pk %}">Edit</a>
                 <a class="btn btn-outline-danger btn-sm" href="{% url 'bookings:delete' b.pk %}">Cancel</a>
+            {% else %}
+                <span class="text-muted small">Past booking</span>
+            {% endif %}
             </div>
             </div>
         {% endfor %}

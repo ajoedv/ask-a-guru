@@ -14,7 +14,7 @@ from pathlib import Path
 from decouple import config
 import os
 import dj_database_url
-
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -180,4 +180,12 @@ SOCIALACCOUNT_PROVIDERS = {
         "SCOPE": ["email", "profile"],
         "AUTH_PARAMS": {"access_type": "online"},
     }
+}
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'secondary',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
 }
