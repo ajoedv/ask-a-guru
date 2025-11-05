@@ -8,11 +8,11 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Local database
+# Local DB
 db.sqlite3
 *.sqlite3
 
-# macOS system files
+# macOS & IDE
 .DS_Store
 .idea/
 .vscode/
@@ -20,7 +20,8 @@ db.sqlite3
 # Logs
 *.log
 
-# Static files collected by Django
-/staticfiles/
-media/.DS_Store
-static/images/hero.jpg
+# Collected static (output of collectstatic)
+staticfiles/
+
+# User uploads
+media/

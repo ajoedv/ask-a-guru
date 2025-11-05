@@ -1,0 +1,24 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Page not found (404)</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{% static 'css/404.css' %}" rel="stylesheet">
+    </head>
+    <body class="error-404">
+        <main class="wrap" role="main" aria-labelledby="title">
+        <div class="badge" aria-hidden="true">404</div>
+        <h1 id="title" class="title">Page not found</h1>
+        <p class="subtitle">The page you’re looking for doesn’t exist or was moved.</p>
+
+        <nav class="actions" aria-label="actions">
+            <a class="btn btn-primary" href="/">Back to Home</a>
+            <a class="btn btn-ghost" href="/sessions/">Browse Sessions</a>
+        </nav>
+
+        <p class="meta" aria-hidden="true">status: 404</p>
+        </main>
+    </body>
+</html>

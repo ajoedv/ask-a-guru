@@ -22,4 +22,7 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('bookings/', include('bookings.urls')),
     path("accounts/", include("allauth.urls")),
+    path("", include("pages.urls")),
 ]
+
+handler404 = "pages.views.custom_404"
