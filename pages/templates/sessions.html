@@ -37,7 +37,10 @@
 
             <div class="d-flex flex-wrap gap-2">
             <a href="{% url 'bookings:create' %}?title=Design%20Strategy" class="btn btn-dark">Book this session</a>
-            <a href="{% url 'about' %}" class="btn btn-outline-secondary">Learn more</a>
+            <a href="#" class="btn btn-outline-secondary"
+                data-bs-toggle="modal" data-bs-target="#modalDesign">
+                Learn more
+            </a>
             </div>
         </div>
         </div>
@@ -70,7 +73,11 @@
 
             <div class="d-flex flex-wrap gap-2">
             <a href="{% url 'bookings:create' %}?title=Photography%20Critique" class="btn btn-dark">Book this session</a>
-            <a href="{% url 'about' %}" class="btn btn-outline-secondary">Learn more</a>
+            <a href="#" class="btn btn-outline-secondary"
+                data-bs-toggle="modal" data-bs-target="#modalPhoto">
+                Learn more
+            </a>
+
             </div>
         </div>
         </div>
@@ -103,7 +110,10 @@
 
             <div class="d-flex flex-wrap gap-2">
             <a href="{% url 'bookings:create' %}?title=Brand%20Foundations" class="btn btn-dark">Book this session</a>
-            <a href="{% url 'about' %}" class="btn btn-outline-secondary">Learn more</a>
+            <a href="#" class="btn btn-outline-secondary"
+                data-bs-toggle="modal" data-bs-target="#modalBrand">
+                Learn more
+            </a>
             </div>
         </div>
         </div>
@@ -117,4 +127,144 @@
     </div>
 
 </div>
+<!-- Modals: session details -->
+
+<!-- Design Strategy -->
+<div class="modal fade" id="modalDesign" tabindex="-1" aria-labelledby="modalDesignLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title h5" id="modalDesignLabel">Design Strategy — session details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p class="mb-3 text-muted">
+                Clarify your idea, structure your UI, and leave with a focused plan for the next steps.
+            </p>
+            <div class="row g-4">
+            <div class="col-md-6">
+                <h6 class="fw-semibold mb-2">What we cover</h6>
+                <ul class="mb-0 ps-3">
+                <li>Lightweight user flow or page map</li>
+                <li>Priority list (Must / Should / Could)</li>
+                <li>Actionable next steps for the week</li>
+                <li>Micro-wireframe sketch (quick)</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h6 class="fw-semibold mb-2">Who it’s for</h6>
+                <ul class="mb-0 ps-3">
+                <li>Founders clarifying product direction</li>
+                <li>Designers planning UI structure</li>
+                <li>Anyone needing fast strategic clarity</li>
+                </ul>
+            </div>
+            </div>
+            <hr class="my-4">
+            <div class="d-flex flex-wrap gap-2">
+            <span class="badge-like">60 min</span>
+            <span class="badge-like">All levels</span>
+            <span class="badge-like">Remote</span>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="{% url 'bookings:create' %}?title=Design%20Strategy" class="btn btn-dark">Book this session</a>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Photography Critique -->
+    <div class="modal fade" id="modalPhoto" tabindex="-1" aria-labelledby="modalPhotoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title h5" id="modalPhotoLabel">Photography Critique — session details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p class="mb-3 text-muted">
+                Get direct, practical feedback to level up your shots, composition, and lighting.
+            </p>
+            <div class="row g-4">
+            <div class="col-md-6">
+                <h6 class="fw-semibold mb-2">What we cover</h6>
+                <ul class="mb-0 ps-3">
+                <li>Portfolio review with highlights and fixes</li>
+                <li>Composition and lighting improvements</li>
+                <li>Repeatable checklist for future shoots</li>
+                <li>Custom checklist PDF to reuse</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h6 class="fw-semibold mb-2">Who it’s for</h6>
+                <ul class="mb-0 ps-3">
+                <li>Creators refining their visual style</li>
+                <li>Photographers improving consistency</li>
+                <li>Anyone seeking actionable critique</li>
+                </ul>
+            </div>
+            </div>
+            <hr class="my-4">
+            <div class="d-flex flex-wrap gap-2">
+            <span class="badge-like">60 min</span>
+            <span class="badge-like">Intermediate</span>
+            <span class="badge-like">Remote</span>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="{% url 'bookings:create' %}?title=Photography%20Critique" class="btn btn-dark">Book this session</a>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Brand Foundations -->
+    <div class="modal fade" id="modalBrand" tabindex="-1" aria-labelledby="modalBrandLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title h5" id="modalBrandLabel">Brand Foundations — session details</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p class="mb-3 text-muted">
+                Define your tone, visuals, and messaging so your brand feels clear and consistent.
+            </p>
+            <div class="row g-4">
+            <div class="col-md-6">
+                <h6 class="fw-semibold mb-2">What we cover</h6>
+                <ul class="mb-0 ps-3">
+                <li>Audience & value proposition sharpening</li>
+                <li>Visual direction and do/don’t guidelines</li>
+                <li>Messaging pillars and headline starters</li>
+                <li>Voice & tone matrix for your audience</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h6 class="fw-semibold mb-2">Who it’s for</h6>
+                <ul class="mb-0 ps-3">
+                <li>Startups building brand foundations</li>
+                <li>Teams aligning voice and visuals</li>
+                <li>Anyone defining a clear brand story</li>
+                </ul>
+            </div>
+            </div>
+            <hr class="my-4">
+            <div class="d-flex flex-wrap gap-2">
+            <span class="badge-like">60 min</span>
+            <span class="badge-like">All levels</span>
+            <span class="badge-like">Remote</span>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="{% url 'bookings:create' %}?title=Brand%20Foundations" class="btn btn-dark">Book this session</a>
+            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
 {% endblock %}
