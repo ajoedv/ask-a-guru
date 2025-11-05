@@ -214,7 +214,7 @@ img {
     .about-stats .stat-circle .value { font-size: 1.4rem; }
 }
 
-/* About typography harmony */
+
 .about-title{
     font-weight: 700;
     font-size: clamp(1.375rem, 1.2vw + 1.1rem, 1.75rem);
@@ -244,3 +244,54 @@ img {
     .about-intro{ line-height: 1.8; }
     .about-points li{ margin-bottom: .6rem; }
 }
+
+/* Sessions page polish */
+    .session-block{
+    border: 1px solid #edf1f4;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(0,0,0,.04);
+    padding: 20px;
+    margin-bottom: 28px;
+}
+
+.session-img{
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #e9eef2;
+    background: #f2f2f2;
+}
+
+.session-meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem .5rem;
+}
+.badge-like{
+    background: #f6f7f9;
+    border: 1px solid #eceff1;
+    color: #374151;
+    border-radius: 999px;
+    padding: .25rem .6rem;
+    font-size: .85rem;
+    line-height: 1.1;
+}
+
+.section-cta{
+    background: #111;
+    color: #fff;
+    border-radius: 14px;
+    padding: 1.25rem 1rem;
+}
+.section-cta .btn{ margin-left: .5rem; }
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus{
+    background: #e9ecef;
+    color: #111;
+    border-color: #e9ecef;
+}
+
+.opacity-90{ opacity: .9; }

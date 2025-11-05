@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <h1 class="h3 mb-1">Sessions</h1>
+    <p class="text-muted mb-0">Pick a topic and book your time.</p>
+    <hr class="my-3">
+    {% endblock %}
+
+    {% block content %}
+    <div class="container-lg">
+
+    <!-- Design Strategy -->
+    <section class="session-block">
+        <div class="row align-items-center g-4">
+        <div class="col-12 col-sm-4 col-md-3">
+            <img src="{% static 'images/design_strategy.webp' %}" alt="Design Strategy" class="session-img w-100">
+        </div>
+        <div class="col">
+            <h2 class="h5 mb-2">Design Strategy</h2>
+            <p class="text-muted mb-3 lh-lg">
+            Clarify your idea, structure your UI, and leave with a focused plan for the next steps.
+            </p>
+
+            <ul class="mb-3 ps-3 opacity-90">
+            <li>Lightweight user flow or page map.</li>
+            <li>Priority list (Must / Should / Could).</li>
+            <li>Actionable next steps for the week.</li>
+            <li>Micro-wireframe sketch (quick).</li>
+            </ul>
+
+            <div class="session-meta mb-3">
+            <span class="badge-like">60 min</span>
+            <span class="badge-like">All levels</span>
+            <span class="badge-like">Great for founders & designers</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+            <a href="{% url 'bookings:create' %}?title=Design%20Strategy" class="btn btn-dark">Book this session</a>
+            <a href="{% url 'about' %}" class="btn btn-outline-secondary">Learn more</a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Photography Critique -->
+    <section class="session-block">
+        <div class="row align-items-center g-4">
+        <div class="col-12 col-sm-4 col-md-3">
+            <img src="{% static 'images/photography_critique.webp' %}" alt="Photography Critique" class="session-img w-100">
+        </div>
+        <div class="col">
+            <h2 class="h5 mb-2">Photography Critique</h2>
+            <p class="text-muted mb-3 lh-lg">
+            Get direct, practical feedback to level up your shots, composition, and lighting.
+            </p>
+
+            <ul class="mb-3 ps-3 opacity-90">
+            <li>Portfolio review with clear highlights and fixes.</li>
+            <li>Composition and lighting improvements.</li>
+            <li>Repeatable checklist for future shoots.</li>
+            <li>Custom checklist PDF to reuse.</li>
+            </ul>
+
+            <div class="session-meta mb-3">
+            <span class="badge-like">60 min</span>
+            <span class="badge-like">Intermediate</span>
+            <span class="badge-like">Great for creators</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+            <a href="{% url 'bookings:create' %}?title=Photography%20Critique" class="btn btn-dark">Book this session</a>
+            <a href="{% url 'about' %}" class="btn btn-outline-secondary">Learn more</a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Brand Foundations -->
+    <section class="session-block">
+        <div class="row align-items-center g-4">
+        <div class="col-12 col-sm-4 col-md-3">
+            <img src="{% static 'images/brand_foundations.webp' %}" alt="Brand Foundations" class="session-img w-100">
+        </div>
+        <div class="col">
+            <h2 class="h5 mb-2">Brand Foundations</h2>
+            <p class="text-muted mb-3 lh-lg">
+            Define your tone, visuals, and messaging so your brand feels clear and consistent.
+            </p>
+
+            <ul class="mb-3 ps-3 opacity-90">
+            <li>Audience & value proposition sharpening.</li>
+            <li>Visual direction and do/don’t guidelines.</li>
+            <li>Messaging pillars and headline starters.</li>
+            <li>Voice & tone matrix for your audience.</li>
+            </ul>
+
+            <div class="session-meta mb-3">
+            <span class="badge-like">60 min</span>
+            <span class="badge-like">All levels</span>
+            <span class="badge-like">Great for startups</span>
+            </div>
+
+            <div class="d-flex flex-wrap gap-2">
+            <a href="{% url 'bookings:create' %}?title=Brand%20Foundations" class="btn btn-dark">Book this session</a>
+            <a href="{% url 'about' %}" class="btn btn-outline-secondary">Learn more</a>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- CTA strip -->
+    <div class="section-cta text-center mt-3">
+        <h3 class="h5 mb-2 text-white">Ready to book your session?</h3>
+        <p class="text-white-50 mb-3">Limited slots available — pick your time now.</p>
+        <a class="btn btn-light" href="{% url 'bookings:create' %}">Book Now</a>
+    </div>
+
+</div>
+{% endblock %}
