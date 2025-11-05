@@ -1,0 +1,23 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>403 – Forbidden</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/error.css' %}" rel="stylesheet">
+    </head>
+    <body class="error-404">
+    <main class="wrap">
+        <div class="badge">403</div>
+        <h1 class="title">Forbidden</h1>
+        <p class="subtitle">You do not have permission to view this page.</p>
+
+        <nav class="actions" aria-label="actions">
+        <a href="/" class="btn btn-primary">Back to Home</a>
+        </nav>
+
+        <p class="meta" aria-hidden="true">status: 403</p>
+    </main>
+</body>
+</html>
