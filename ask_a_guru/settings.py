@@ -208,6 +208,12 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SOCIALACCOUNT_ADAPTER = "pages.adapters.SocialAutoConnectAdapter"
 
+# Keep session across Google redirect (prevent state mismatch)
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = "Lax"
+CSRF_COOKIE_SAMESITE = "Lax"
+
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'secondary',
