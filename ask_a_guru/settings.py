@@ -208,7 +208,7 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-SOCIALACCOUNT_ADAPTER = "pages.adapters.SocialAutoConnectAdapter"
+# SOCIALACCOUNT_ADAPTER = "pages.adapters.SocialAutoConnectAdapter"
 
 # Keep session across Google redirect (prevent state mismatch)
 SESSION_COOKIE_SECURE = True
