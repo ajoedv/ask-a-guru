@@ -17,6 +17,13 @@
             <button type="submit" class="btn btn-dark w-100">
             {% trans "Continue" %}
             </button>
+            <script>
+            // Auto-submit the only form on this page so the user skips the "Continue" click
+                window.addEventListener('DOMContentLoaded', function () {
+                    const f = document.querySelector('form');
+                    if (f) f.submit();
+            });
+            </script>
         </form>
 
         <div class="text-center mt-3">
