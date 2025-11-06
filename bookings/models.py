@@ -1,4 +1,3 @@
-# bookings/models.py
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
@@ -31,16 +30,11 @@ class Booking(models.Model):
         title = getattr(self, "session_title", None)
         if not scheduled or not title:
             return
-
         if timezone.is_naive(scheduled):
-            scheduled = timezone.make_aware(
-                scheduled, timezone.get_current_timezone()
-            )
+            scheduled = timezone.make_aware(scheduled, timezone.get_current_timezone())
             self.scheduled_at = scheduled
-
         if scheduled <= timezone.now():
             raise ValidationError("You cannot book a past date or time.")
-
         exists = (
             type(self).objects
             .filter(session_title=title, scheduled_at=scheduled)
@@ -48,6 +42,12 @@ class Booking(models.Model):
             .exists()
         )
         if exists:
-            raise ValidationError(
-                "This time slot is already booked for this session."
+            raise ValidationError("This time slot is already booked for this session.")
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["scheduled_at"],
+                name="unique_timeslot_global",
             )
+        ]
