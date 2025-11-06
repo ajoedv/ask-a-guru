@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
-{#  {% load socialaccount %}#}
-{% block title %}Sign In · Ask a Guru{% endblock %}
+{% load socialaccount %}
+
 {% block content %}
 <div class="container py-4">
     <div class="col-12 col-md-6 col-lg-4 mx-auto">
@@ -32,7 +32,7 @@
         </div>
 
         <button class="btn btn-primary w-100" type="submit">Sign in</button>
-        <a href="#"
+        <a href="{% provider_login_url 'google' %}"
             class="btn btn-light w-100 mt-2">
             Continue with Google
         </a>
