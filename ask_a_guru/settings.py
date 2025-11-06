@@ -71,6 +71,7 @@ ACCOUNT_SIGNUP_FIELDS = ["username*", "email*", "password1*", "password2*"]
 ACCOUNT_EMAIL_VERIFICATION = "none"
 SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_USERNAME_REQUIRED = False
+SOCIALACCOUNT_LOGIN_ON_GET = True
 
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
