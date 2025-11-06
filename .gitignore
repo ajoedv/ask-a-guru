@@ -1,6 +1,11 @@
-# Virtual environment
+# Virtual environments
+.venv/
 venv/
+env/
+
+# Environment files (secrets)
 .env
+.env.*
 
 # Python cache
 __pycache__/
@@ -11,6 +16,8 @@ __pycache__/
 # Local DB
 db.sqlite3
 *.sqlite3
+db.sqlite3.bak
+*.bak
 
 # macOS & IDE
 .DS_Store
@@ -25,5 +32,10 @@ staticfiles/
 
 # User uploads
 media/
-db.sqlite3.bak
-.env
+
+# Test / tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.python-version

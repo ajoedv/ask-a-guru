@@ -190,11 +190,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Google provider configuration for django-allauth
 SOCIALACCOUNT_PROVIDERS = {
     "google": {
-        "APP": {
-            "client_id": config("SOCIAL_AUTH_GOOGLE_CLIENT_ID"),
-            "secret": config("SOCIAL_AUTH_GOOGLE_CLIENT_SECRET"),
-            "key": "",
-        },
         "SCOPE": ["email", "profile"],
         "AUTH_PARAMS": {"access_type": "online"},
     }
