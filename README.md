@@ -448,6 +448,72 @@ Full testing (feature cases, responsiveness, accessibility, validators, and bug 
 ## Deployment
 
 ### Forking the GitHub Repository
+1. Navigate to the GitHub repository: `ajoedv/ask-a-guru`
+2. Click the **Fork** button (top-right).
+3. Select your GitHub account to create a fork.
+
+### Making a Local Clone
+1. Click **Code** and copy the HTTPS URL.
+2. In your terminal, run:
+   ```bash
+   git clone https://github.com/ajoedv/ask-a-guru.git
+   ```
+3. Enter the project folder:
+   ```bash
+   cd ask-a-guru
+   ```
+4. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Heroku Deployment
+This project is deployed on **Heroku** using **GitHub** integration and a **PostgreSQL** database.
+
+#### Required Deployment Files
+The following files are included in the project root:
+- `Procfile`
+  ```text
+  web: gunicorn ask_a_guru.wsgi
+  ```
+- `runtime.txt`
+  ```text
+  python-3.11.9
+  ```
+- `requirements.txt`
+
+#### Steps to Deploy
+1. Log in to Heroku and click **New** → **Create new app**.
+2. Choose an **App name** and region, then click **Create app**.
+3. Go to **Resources** and add **Heroku Postgres** (this creates `DATABASE_URL` automatically).
+4. Go to **Settings** → **Reveal Config Vars** and add:
+
+   **Important:** Do not put secret values in GitHub or the README. Store them only in Heroku **Config Vars**.
+
+   - `SECRET_KEY`
+   - `DEBUG` = `False`
+   - `ALLOWED_HOSTS` = `<your-app-name>.herokuapp.com`
+   - `DATABASE_URL` (auto-added by Heroku Postgres)
+
+   (Optional, only if you get a CSRF origin error):
+   - `CSRF_TRUSTED_ORIGINS` = `https://<your-app-name>.herokuapp.com`
+
+5. Go to **Deploy** → select **GitHub** → connect the repo `ajoedv/ask-a-guru`.
+6. Deploy from branch `main` (**Deploy Branch**).
+7. After deploy, go to **More** → **Run console** and run:
+   ```bash
+   python manage.py migrate
+   ```
+8. (Optional) Create a superuser:
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+### Verification & Troubleshooting
+- Open the deployed app and confirm authentication and core CRUD features work correctly.
+- If issues occur, check logs in Heroku: **More** → **View logs**.
+
+### Forking the GitHub Repository
 1. On GitHub, click **Fork** on the repository page to create your copy.
 
 ### Creating a Local Clone
