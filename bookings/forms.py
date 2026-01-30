@@ -43,7 +43,9 @@ class AdminBookingForm(forms.ModelForm):
         )
         widgets = {
             "session_title": forms.Select(attrs={"class": "form-select"}),
-            "notes": forms.Textarea(attrs={"class": "form-control", "rows": 6}),
+            "notes": forms.Textarea(
+                attrs={"class": "form-control", "rows": 6}
+            ),
         }
 
     def clean(self):

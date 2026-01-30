@@ -15,15 +15,28 @@ def booking_create(request):
         if form.is_valid():
             booking = form.save(commit=False)
             booking.user = request.user
-            if Booking.objects.filter(scheduled_at=booking.scheduled_at).exists():
+            if Booking.objects.filter(
+                scheduled_at=booking.scheduled_at
+            ).exists():
                 form.add_error(None, "This time slot is already booked.")
-                return render(request, "bookings/booking_form.html", {"form": form})
+                return render(
+                    request,
+                    "bookings/booking_form.html",
+                    {"form": form},
+                )
             try:
                 booking.save()
             except IntegrityError:
                 form.add_error(None, "This time slot is already booked.")
-                return render(request, "bookings/booking_form.html", {"form": form})
-            messages.success(request, f'Booking created for "{booking.session_title}".')
+                return render(
+                    request,
+                    "bookings/booking_form.html",
+                    {"form": form},
+                )
+            messages.success(
+                request,
+                f'Booking created for "{booking.session_title}".',
+            )
             return redirect("bookings:bookings-home")
     else:
         initial = {}
@@ -36,7 +49,10 @@ def booking_create(request):
 
 @login_required
 def my_bookings(request):
-    bookings = Booking.objects.filter(user=request.user).order_by("-scheduled_at")
+    bookings = (
+        Booking.objects.filter(user=request.user)
+        .order_by("-scheduled_at")
+    )
     return render(
         request,
         "bookings/my_bookings.html",
@@ -57,8 +73,13 @@ def booking_update(request, pk):
         if form.is_valid():
             tmp = form.save(commit=False)
 
-            # block any booking at the same datetime (global), excluding current
-            if Booking.objects.filter(scheduled_at=tmp.scheduled_at).exclude(pk=obj.pk).exists():
+            # Block any booking at the same datetime (global),
+            # excluding the current one.
+            if (
+                Booking.objects.filter(scheduled_at=tmp.scheduled_at)
+                .exclude(pk=obj.pk)
+                .exists()
+            ):
                 form.add_error(None, "This time slot is already booked.")
                 return render(
                     request,
