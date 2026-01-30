@@ -63,43 +63,43 @@ This project was planned and tracked using **GitHub Projects (Kanban)** with Epi
 <details>
 <summary><strong>Kanban Board (project view)</strong></summary>
 
-![Kanban Board](docs/agail/kanban-board.png)
+![Kanban Board](docs/agile/kanban-board.png)
 </details>
 
 <details>
 <summary><strong>User Stories moved to Done (board view)</strong></summary>
 
-![User Stories Done](docs/agail/user-stories-done.png)
+![User Stories Done](docs/agile/user-stories-done.png)
 </details>
 
 <details>
 <summary><strong>Issues closed (work completed)</strong></summary>
 
-![Issues Closed](docs/agail/issues-closed.png)
+![Issues Closed](docs/agile/issues-closed.png)
 </details>
 
 <details>
 <summary><strong>Epics overview (GitHub Projects)</strong></summary>
 
-![Epics Overview](docs/agail/epics-overview.png)
+![Epics Overview](docs/agile/epics-overview.png)
 </details>
 
 <details>
 <summary><strong>Example Epic (CRUD) — issue view</strong></summary>
 
-![Epic Example CRUD](docs/agail/epic-example-crud.png)
+![Epic Example CRUD](docs/agile/epic-example-crud.png)
 </details>
 
 <details>
 <summary><strong>Milestones closed (100% complete)</strong></summary>
 
-![Milestones Closed](docs/agail/milestones-closed.png)
+![Milestones Closed](docs/agile/milestones-closed.png)
 </details>
 
 <details>
 <summary><strong>MoSCoW labels</strong></summary>
 
-![MoSCoW Labels](docs/agail/labels-moscow.png)
+![MoSCoW Labels](docs/agile/labels-moscow.png)
 </details>
 
 [Back To Top](#table-of-contents)
