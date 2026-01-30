@@ -45,6 +45,16 @@ a:hover {
     color: var(--color-black);
 }
 
+.navbar .dropdown-toggle {
+    line-height: 1.2;
+}
+
+.navbar .dropdown-toggle::after {
+    vertical-align: middle;
+    margin-top: 0;
+}
+
+
 /* Images */
 img {
     max-width: 100%;
