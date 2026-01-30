@@ -445,100 +445,109 @@ Full testing (feature cases, responsiveness, accessibility, validators, and bug 
 
 ---
 
+
 ## Deployment
 
-### Forking the GitHub Repository
-1. Navigate to the GitHub repository: `ajoedv/ask-a-guru`
-2. Click the **Fork** button (top-right).
-3. Select your GitHub account to create a fork.
+### Entity Relationship Diagram (ERD)
+An Entity Relationship Diagram (ERD) is included to show how the database models relate to each other.
 
-### Making a Local Clone
-1. Click **Code** and copy the HTTPS URL.
-2. In your terminal, run:
-   ```bash
-   git clone https://github.com/ajoedv/ask-a-guru.git
-   ```
-3. Enter the project folder:
-   ```bash
-   cd ask-a-guru
-   ```
-4. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+![ERD](docs/erd.png)
 
-### Heroku Deployment
-This project is deployed on **Heroku** using **GitHub** integration and a **PostgreSQL** database.
+> ERD image path: `docs/erd.png`
 
-#### Required Deployment Files
-The following files are included in the project root:
-- `Procfile`
-  ```text
-  web: gunicorn ask_a_guru.wsgi
-  ```
-- `runtime.txt`
-  ```text
-  python-3.11.9
-  ```
-- `requirements.txt`
+---
 
-#### Steps to Deploy
-1. Log in to Heroku and click **New** → **Create new app**.
-2. Choose an **App name** and region, then click **Create app**.
-3. Go to **Resources** and add **Heroku Postgres** (this creates `DATABASE_URL` automatically).
-4. Go to **Settings** → **Reveal Config Vars** and add:
+### Heroku Deployment (Production)
 
-   **Important:** Do not put secret values in GitHub or the README. Store them only in Heroku **Config Vars**.
+This project is deployed to **Heroku** using **GitHub** integration and **Heroku Postgres**.
 
-   - `SECRET_KEY`
-   - `DEBUG` = `False`
-   - `ALLOWED_HOSTS` = `<your-app-name>.herokuapp.com`
-   - `DATABASE_URL` (auto-added by Heroku Postgres)
+#### Prerequisites
+- A **GitHub** account
+- A **Heroku** account
+- **Python 3.11.9** (matches `runtime.txt`)
+- Required deployment files included in the repository root:
+  - `Procfile` -> `web: gunicorn ask_a_guru.wsgi`
+  - `runtime.txt` -> `python-3.11.9`
+  - `requirements.txt`
 
-   (Optional, only if you get a CSRF origin error):
-   - `CSRF_TRUSTED_ORIGINS` = `https://<your-app-name>.herokuapp.com`
+#### Step-by-step deployment (Heroku Dashboard + GitHub)
 
-5. Go to **Deploy** → select **GitHub** → connect the repo `ajoedv/ask-a-guru`.
-6. Deploy from branch `main` (**Deploy Branch**).
-7. After deploy, go to **More** → **Run console** and run:
-   ```bash
-   python manage.py migrate
-   ```
-8. (Optional) Create a superuser:
-   ```bash
-   python manage.py createsuperuser
-   ```
+1) **Create the Heroku App**
+- Heroku Dashboard -> **New** -> **Create new app**
+- Choose an app name and region, then create the app.
 
-### Verification & Troubleshooting
-- Open the deployed app and confirm authentication and core CRUD features work correctly.
-- If issues occur, check logs in Heroku: **More** → **View logs**.
+![Create Heroku app](docs/heroku-create-app.png)
 
-### Forking the GitHub Repository
-1. On GitHub, click **Fork** on the repository page to create your copy.
+2) **Add Heroku Postgres**
+- App -> **Resources** -> Add-on: **Heroku Postgres**
+- This automatically creates `DATABASE_URL`.
 
-### Creating a Local Clone
-1. Copy your fork’s URL.  
-2. `git clone <your-fork-url>`  
-3. `cd ask-a-guru` and create/activate a virtual environment.  
-4. `pip install -r requirements.txt`
+![Add Heroku Postgres](docs/heroku-add-postgres.png)
 
-### Environment Variables
-Create a `.env` (or set config vars on Heroku) with:
+3) **Set Config Vars (Environment Variables)**
+- App -> **Settings** -> **Reveal Config Vars**
+- Add the required keys below.
 
-- `SECRET_KEY=<your-secret>`
-- `DEBUG=False`
-- `DATABASE_URL=<your-postgres-url>`
-- `ALLOWED_HOSTS=<your-heroku-domain>`
-- `GOOGLE_CLIENT_ID=<id>`
-- `GOOGLE_CLIENT_SECRET=<secret>`
+**Important:** Never commit secret values to GitHub and do not write real secrets in this README.  
+Only the *keys* are documented here; the *values* are stored privately in Heroku Config Vars.
 
-Then:
+Required:
+- `SECRET_KEY` (private value stored in Heroku)
+- `DEBUG` = `False`
+- `ALLOWED_HOSTS` = `<your-app-name>.herokuapp.com`
+- `DATABASE_URL` (auto-created by Heroku Postgres)
 
-- `python manage.py collectstatic`
-- `python manage.py migrate`
+Optional (only if used by this project):
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `CSRF_TRUSTED_ORIGINS` = `https://<your-app-name>.herokuapp.com` (only if a CSRF origin error occurs)
 
-Deploy to Heroku with Gunicorn/WhiteNoise as configured in `Procfile` and `settings.py`.
+![Config Vars](docs/heroku-config-vars.png)
 
+**Generating a SECRET_KEY securely (example command):**
+```bash
+python -c "import secrets; print(secrets.token_urlsafe(50))"
+```
+
+4) **Connect Heroku to GitHub**
+- App -> **Deploy** tab
+- Deployment method: **GitHub**
+- Connect the repository: `ajoedv/ask-a-guru`
+- Select branch: `main`
+
+![Connect GitHub repo](docs/heroku-connect-github.png)
+
+5) **Deploy**
+- In the Deploy tab:
+  - Manual deploy -> **Deploy Branch**
+  - (Optional) Enable Automatic Deploys
+
+![Deploy branch](docs/heroku-deploy-branch.png)
+
+6) **Run migrations (Post-deploy)**
+- App -> **More** -> **Run console**
+- Run:
+```bash
+python manage.py migrate
+```
+
+![Run console migrate](docs/heroku-run-console-migrate.png)
+
+(Optional) Create a superuser:
+```bash
+python manage.py createsuperuser
+```
+
+7) **Verify deployment**
+- Open the deployed app URL
+- Confirm authentication and core CRUD functionality operate correctly.
+
+#### Troubleshooting
+- Check logs in Heroku: **More** -> **View logs**
+- Common issues:
+  - Missing/incorrect Config Vars (`SECRET_KEY`, `ALLOWED_HOSTS`, `DATABASE_URL`)
+  - `DEBUG` not set to `False`
+  - Migrations not run after deployment
 ---
 
 ## Credits
