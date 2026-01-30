@@ -61,33 +61,45 @@ This project was planned and tracked using **GitHub Projects (Kanban)** with Epi
 **Workflow columns:** **No Status / To Do → In Progress → Done**. Items move right only when acceptance criteria are satisfied and the feature is verified on the deployed app.
 
 <details>
-<summary><strong>Kanban Board (screenshot)</strong></summary>
+<summary><strong>Kanban Board (project view)</strong></summary>
 
-![Kanban Board](assets/readme/kanbanboard.webp)
+![Kanban Board](docs/agail/kanban-board.png)
 </details>
 
 <details>
-<summary><strong>User Stories (list view)</strong></summary>
+<summary><strong>User Stories moved to Done (board view)</strong></summary>
 
-![User Stories list](assets/readme/userstories-epic.webp)
+![User Stories Done](docs/agail/user-stories-done.png)
 </details>
 
 <details>
-<summary><strong>Authentication epic – issue view</strong></summary>
+<summary><strong>Issues closed (work completed)</strong></summary>
 
-![Auth Epic](assets/readme/issue-auth.webp)
+![Issues Closed](docs/agail/issues-closed.png)
 </details>
 
 <details>
-<summary><strong>CRUD epic – issue view</strong></summary>
+<summary><strong>Epics overview (GitHub Projects)</strong></summary>
 
-![CRUD Epic](assets/readme/crud.webp)
+![Epics Overview](docs/agail/epics-overview.png)
 </details>
 
 <details>
-<summary><strong>CRUD Acceptance Criteria (checked)</strong></summary>
+<summary><strong>Example Epic (CRUD) — issue view</strong></summary>
 
-![Acceptance Criteria checklist](assets/readme/acceptance_criteria.webp)
+![Epic Example CRUD](docs/agail/epic-example-crud.png)
+</details>
+
+<details>
+<summary><strong>Milestones closed (100% complete)</strong></summary>
+
+![Milestones Closed](docs/agail/milestones-closed.png)
+</details>
+
+<details>
+<summary><strong>MoSCoW labels</strong></summary>
+
+![MoSCoW Labels](docs/agail/labels-moscow.png)
 </details>
 
 [Back To Top](#table-of-contents)
