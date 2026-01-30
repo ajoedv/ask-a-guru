@@ -26,9 +26,6 @@ A full-stack booking app for 1-to-1 creative sessions with email/Google auth and
 * [Testing](#testing)
 * [Known Issues](#known-issues)
 * [Deployment](#deployment)
-  * [Forking the GitHub Repository](#forking-the-github-repository)
-  * [Creating a Local Clone](#creating-a-local-clone)
-  * [Environment Variables](#environment-variables)
 * [Credits](#credits)
 * [Acknowledgements](#acknowledgements)
 
