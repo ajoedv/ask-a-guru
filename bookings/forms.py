@@ -48,6 +48,15 @@ class AdminBookingForm(forms.ModelForm):
             ),
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # Prefill date and time_slot when editing an existing booking
+        if self.instance and self.instance.pk and self.instance.scheduled_at:
+            local_dt = timezone.localtime(self.instance.scheduled_at)
+            self.fields["date"].initial = local_dt.date()
+            self.fields["time_slot"].initial = local_dt.strftime("%H:%M")
+
     def clean(self):
         cleaned = super().clean()
 
