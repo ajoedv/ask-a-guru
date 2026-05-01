@@ -34,7 +34,7 @@ A full-stack booking app for 1-to-1 creative sessions with email/Google auth and
 ---
 
 ## Live Demo
-[Click here to view the live app on Heroku](https://ask-a-guru-ef8ce16b4e6e.herokuapp.com/)
+[Click here to view the live app on Heroku](https://ask-a-guru-joe-p4-a99ea331fbb8.herokuapp.com/)
 
 ---
 
